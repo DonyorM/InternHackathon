@@ -72,7 +72,7 @@ const CheckoutScreen: React.FC<CheckoutScreenProps> = ({ setCheckout }) => {
           <h2 className={styles.orderTotalTitle}>Order Total</h2>
           {cart.map((cartItem) => (
             <span className={styles.price}>
-              ${cartItem.item.price} x {cartItem.quanity}
+              ${cartItem.item.price} x {cartItem.quantity}
             </span>
           ))}
           <div className={styles.bar}></div>
@@ -80,7 +80,7 @@ const CheckoutScreen: React.FC<CheckoutScreenProps> = ({ setCheckout }) => {
             $
             {cart.reduce(
               (partialSum, entry) =>
-                partialSum + entry.item.price * entry.quanity,
+                partialSum + entry.item.price * entry.quantity,
               0
             )}
           </span>

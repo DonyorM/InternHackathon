@@ -7,7 +7,7 @@ export interface Item {
 
 export interface CartItem {
   item: Item;
-  quanity: number;
+  quantity: number;
 }
 
 export interface User {
