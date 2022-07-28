@@ -5,9 +5,13 @@ import SuggestedItems from "../SuggestedItems/SuggestedItems";
 
 interface CheckoutScreenProps {
   setCheckout: (checkout: boolean) => void;
+  setPayment: (payment: boolean) => void;
 }
 
-const CheckoutScreen: React.FC<CheckoutScreenProps> = ({ setCheckout }) => {
+const CheckoutScreen: React.FC<CheckoutScreenProps> = ({
+  setCheckout,
+  setPayment,
+}) => {
   const { cart } = useContext(CartContext);
 
   return (
@@ -66,7 +70,7 @@ const CheckoutScreen: React.FC<CheckoutScreenProps> = ({ setCheckout }) => {
           ))}
         </div>
         {/* <div className={styles.suggestedSection}> */}
-         
+
         {/* </div> */}
         <div className={styles.orderTotal}>
           <h2 className={styles.orderTotalTitle}>Order Total</h2>
@@ -84,7 +88,15 @@ const CheckoutScreen: React.FC<CheckoutScreenProps> = ({ setCheckout }) => {
               0
             )}
           </span>
-          <button className={styles.checkout}>PROCEED TO PAYMENT</button>
+          <button
+            className={styles.checkout}
+            onClick={() => {
+              setPayment(true);
+              setCheckout(false);
+            }}
+          >
+            PROCEED TO PAYMENT
+          </button>
         </div>
       </div>
       <SuggestedItems />

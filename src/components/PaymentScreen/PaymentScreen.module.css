@@ -1,0 +1,65 @@
+.topBar {
+  padding: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.backButton {
+  font-family: "Avenir Next";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13.9877px;
+  line-height: 19px;
+
+  color: #595959;
+  border: none;
+  background: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.checkout {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  width: 268.78px;
+  height: 45px;
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: 17.2008px;
+  line-height: 23px;
+  text-align: center;
+
+  background: linear-gradient(91.62deg, #3e94d1 -0.88%, #7ec4e6 103.67%);
+  border: none;
+  border-radius: 8.51351px;
+  color: white;
+  text-transform: capitalize;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.text {
+  font-family: Avenir Next;
+  font-size: 26px;
+  color: #3f3f3f;
+  font-weight: 700;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-bottom: 30px;
+}
+
+.wrapper {
+  padding-left: 100px;
+  padding-right: 100px;
+}
