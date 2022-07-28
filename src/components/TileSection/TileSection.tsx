@@ -30,7 +30,11 @@ const TileSection: React.FC<TileSectionProps> = ({ itemIds }) => {
       {value.docs
         .map((doc) => doc.data() as Item)
         .map((arrayItem) => (
-          <ItemCard name={arrayItem.name} price={arrayItem.price} />
+          <ItemCard
+            name={arrayItem.name}
+            price={arrayItem.price}
+            imgSrc={`/images/${arrayItem.id}.jpg`}
+          />
         ))}
     </div>
   );
