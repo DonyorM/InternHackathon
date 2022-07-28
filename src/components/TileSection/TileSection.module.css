@@ -1,0 +1,9 @@
+.TileSection {
+  display: grid;
+  width: 150px;
+  height: 200px;
+  text-align: left;
+  grid-template-columns: repeat(4, 150px);
+  gap: 10px;
+  grid-auto-rows: auto;
+}
