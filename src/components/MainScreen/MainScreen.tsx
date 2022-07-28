@@ -146,7 +146,7 @@ const MainScreen: React.FC<MainScreenProps> = ({ setCheckout }) => {
           )}
           <div className={styles.MainTiles}>
             <TileSection
-              items={summerPicks}
+              items={searchInput ? items : summerPicks}
               header={searchInput ? "Search Results" : "Popular this Summer"}
             />
           </div>
