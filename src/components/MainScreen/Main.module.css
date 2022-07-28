@@ -1,3 +1,17 @@
 .Main {
   display: flex;
 }
+
+.MainTiles p {
+  padding-top: 45px;
+}
+
+.topBar {
+  display: flex;
+  align-items: center;
+  margin-top: 34px;
+}
+
+.topLogo {
+  margin-left: 70px;
+}

@@ -17,7 +17,6 @@ const TileSection: React.FC<TileSectionProps> = ({ items }) => {
 
   return (
     <div>
-      <p>Summer Picks</p>
       <div className={styles.TileSection}>
         {items.map((arrayItem) => (
           <ItemCard

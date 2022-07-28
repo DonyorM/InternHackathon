@@ -13,6 +13,7 @@ import data from "../../result.json";
 import { useAuthState } from "react-firebase-hooks/auth";
 import TileSection from "../TileSection/TileSection";
 import Categories from "../Categories/Categories";
+import QRCode from "../QRCode/QRCode";
 import styles from "./Main.module.css";
 import ShoppingChartButton from "../ShoppingCartButton/ShoppingCartButton";
 const auth = getAuth(app);
@@ -20,26 +21,36 @@ const db = getFirestore(app);
 
 const defaultValues = [
   {
-    category: "Sliderz",
-    id: 1024,
-    name: "Spicy Bacon Ranch Sliderz",
-    price: 3.99,
+    "name": "Starbucks Frapuccino",
+    "price": 4.99,
+    "id": 13062,
+    "category": "Refresherz"
   },
   {
-    category: "Shnack Wrapz",
-    id: 1027,
-    name: "Booming Onions & Cheddar",
-    price: 5.59,
+    "name": "Dunkin’ Iced Coffee",
+    "price": 2.99,
+    "id": 13063,
+    "category": "Refresherz"
   },
   {
-    category: "Chicken Appz",
-    id: 1063,
-    name: "Boneless Bitez",
-    price: 5.59,
+    "name": "Peace Coffee",
+    "price": 13.99,
+    "id": 13064,
+    "category": "Refresherz"
   },
+  {
+    "name": "Medium Hot Coffee",
+    "price": 1.99,
+    "id": 13065,
+    "category": "Refresherz"
+  }
 ];
 
-const MainScreen = () => {
+interface MainScreenProps {
+  setCheckout: (checkout: boolean) => void;
+}
+
+const MainScreen: React.FC<MainScreenProps> = ({ setCheckout }) => {
   const [searchInput, setSearchInput] = useState("");
   const [displayKeyboard, setDisplayKeyboard] = useState(false);
   const [userId, setUserId] = useState<string | null>(null);
@@ -70,7 +81,7 @@ const MainScreen = () => {
       "daniel.manila@willowtreeapps.com",
       "password"
     );
-    function clickHanlder(e: any) {
+    function clickHandler(e: any) {
       if (
         !(e.target.nodeName === "INPUT") &&
         !e.target.classList.contains("hg-button")
@@ -80,21 +91,33 @@ const MainScreen = () => {
       }
     }
 
-    window.addEventListener("click", clickHanlder);
-    return window.removeEventListener("click", clickHanlder, true);
+    window.addEventListener("click", clickHandler);
+    return window.removeEventListener("click", clickHandler, true);
   }, []);
   return (
     <>
-      <Searchbar
-        searchInput={searchInput}
-        onChange={setSearchInput}
-        setDisplayKeyboard={setDisplayKeyboard}
-      />
-      <ShoppingChartButton onClick={() => null} />
-      <div className={styles.Main}>
-        <Categories />
-        <TileSection items={items} />
+      <div className={styles.topBar}>
+        <img className={styles.topLogo} src="/logo.svg" alt="" />
+        <Searchbar
+          searchInput={searchInput}
+          onChange={setSearchInput}
+          setDisplayKeyboard={setDisplayKeyboard}
+        />
+        <ShoppingChartButton onClick={() => setCheckout(true)} />
       </div>
+      <div className={styles.Main}>
+        <div>
+          <Categories />
+          <QRCode />
+        </div>
+        <div className={styles.MainTiles}>
+          <p>Picked for You</p>
+          <TileSection items={items} />
+          <p>Popular this Summer</p>
+          <TileSection items={items} />
+        </div>
+      </div>
+
       {displayKeyboard && (
         <KeyboardComponent
           searchInput={searchInput}
