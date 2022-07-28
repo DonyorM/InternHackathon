@@ -3,13 +3,11 @@ import Searchbar from "./components/Searchbar/Searchbar";
 import KeyboardComponent from "./components/keyboard/KeyboardComponent";
 import { app } from "./firebase";
 import React, { useEffect, useState, useMemo } from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import { useAuthState } from "react-firebase-hooks/auth";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import TileSection from "./components/TileSection/TileSection";
 import { useCollection } from "react-firebase-hooks/firestore";
-import { collection, getFirestore, query, where } from "firebase/firestore";
+import { collection, getFirestore } from "firebase/firestore";
 import { Item } from "./types";
 const auth = getAuth(app);
 const db = getFirestore(app);
@@ -36,7 +34,8 @@ const defaultValues = [
 ];
 
 function App() {
-  const [search, setSearch] = useState("");
+  const [searchInput, setSearchInput] = useState("");
+  const [displayKeyboard, setDisplayKeyboard] = useState(false);
 
   const [value] = useCollection(collection(db, "items"));
 
@@ -45,11 +44,11 @@ function App() {
   }, [value]);
 
   const items = useMemo(() => {
-    const regex = new RegExp(search, "i");
-    return search && data
+    const regex = new RegExp(searchInput, "i");
+    return searchInput && data
       ? data.filter((d) => regex.test(d.name))
       : defaultValues;
-  }, [search, data]);
+  }, [searchInput, data]);
 
   useEffect(() => {
     signInWithEmailAndPassword(
@@ -57,13 +56,34 @@ function App() {
       "daniel.manila@willowtreeapps.com",
       "password"
     );
+    function clickHanlder(e: any) {
+      if (
+        !(e.target.nodeName === "INPUT") &&
+        !e.target.classList.contains("hg-button")
+      ) {
+        setDisplayKeyboard(false);
+        setSearchInput("");
+      }
+    }
+
+    window.addEventListener("click", clickHanlder);
+    return window.removeEventListener("click", clickHanlder, true);
   }, []);
 
   return (
-    <div>
-      <Searchbar value={search} onChange={setSearch} />
-      <KeyboardComponent />
+    <div style={{ height: "100vh" }}>
+      <Searchbar
+        searchInput={searchInput}
+        onChange={setSearchInput}
+        setDisplayKeyboard={setDisplayKeyboard}
+      />
       <TileSection items={items} />
+      {displayKeyboard && (
+        <KeyboardComponent
+          searchInput={searchInput}
+          setSearchInput={setSearchInput}
+        />
+      )}
     </div>
   );
 }

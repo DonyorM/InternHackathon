@@ -1,19 +1,24 @@
 import styles from "./SearchBar.module.css";
-import React, { Component, useRef } from "react";
+import React from "react";
 
 interface SearchbarProps {
-  value: string;
+  searchInput: string;
   onChange: (newVal: string) => void;
+  setDisplayKeyboard: (displayKeyboard: boolean) => void;
 }
-
-const Searchbar: React.FC<SearchbarProps> = ({ value, onChange }) => {
+const Searchbar: React.FC<SearchbarProps> = ({
+  searchInput,
+  onChange,
+  setDisplayKeyboard,
+}) => {
   return (
     <div className={styles.searchBar}>
       <input
         type="text"
-        value={value}
-        onChange={(evt) => {
-          onChange(evt.target.value);
+        value={searchInput}
+        onChange={(evt) => onChange(evt.target.value)}
+        onFocus={() => {
+          setDisplayKeyboard(true);
         }}
       />
     </div>
