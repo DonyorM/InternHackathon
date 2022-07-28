@@ -1,7 +1,7 @@
 .Categories {
-  width: 200px;
+  width: 156px;
   text-align: right;
-  margin-right: 70px;
+  margin-right: 68px;
   height: 100%;
 }
 
@@ -11,6 +11,20 @@
 
 .Categorieslist li {
   margin-bottom: 15px;
+  font-weight: 600;
+  color: #727272;
+}
+
+.CategoriesHead {
+  color: #3f96d3 !important;
+  font-weight: bold !important;
+}
+
+.Categories button {
+  background-color: white;
+  font-family: "Avenir Next";
+  padding: 0;
+  border: none;
   font-weight: 600;
   color: #727272;
 }

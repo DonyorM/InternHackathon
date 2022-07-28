@@ -9,14 +9,16 @@ import { useCollection } from "react-firebase-hooks/firestore";
 const db = getFirestore(app);
 interface TileSectionProps {
   items: Item[];
+  header: String;
 }
-const TileSection: React.FC<TileSectionProps> = ({ items }) => {
+const TileSection: React.FC<TileSectionProps> = ({ items, header }) => {
   if (items.length === 0) {
     <div>No items found</div>;
   }
 
   return (
     <div>
+      <p>{header}</p>
       <div className={styles.TileSection}>
         {items.map((arrayItem) => (
           <ItemCard item={arrayItem} imgSrc={`/images/${arrayItem.id}.jpg`} />

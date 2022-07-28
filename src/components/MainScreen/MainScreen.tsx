@@ -21,29 +21,29 @@ const db = getFirestore(app);
 
 const defaultValues = [
   {
-    "name": "Starbucks Frapuccino",
-    "price": 4.99,
-    "id": 13062,
-    "category": "Refresherz"
+    name: "Starbucks Frapuccino",
+    price: 4.99,
+    id: 13062,
+    category: "Refresherz",
   },
   {
-    "name": "Dunkin’ Iced Coffee",
-    "price": 2.99,
-    "id": 13063,
-    "category": "Refresherz"
+    name: "Dunkin’ Iced Coffee",
+    price: 2.99,
+    id: 13063,
+    category: "Refresherz",
   },
   {
-    "name": "Peace Coffee",
-    "price": 13.99,
-    "id": 13064,
-    "category": "Refresherz"
+    name: "Peace Coffee",
+    price: 13.99,
+    id: 13064,
+    category: "Refresherz",
   },
   {
-    "name": "Medium Hot Coffee",
-    "price": 1.99,
-    "id": 13065,
-    "category": "Refresherz"
-  }
+    name: "Medium Hot Coffee",
+    price: 1.99,
+    id: 13065,
+    category: "Refresherz",
+  },
 ];
 
 interface MainScreenProps {
@@ -110,11 +110,13 @@ const MainScreen: React.FC<MainScreenProps> = ({ setCheckout }) => {
           <Categories />
           <QRCode />
         </div>
-        <div className={styles.MainTiles}>
-          <p>Picked for You</p>
-          <TileSection items={items} />
-          <p>Popular this Summer</p>
-          <TileSection items={items} />
+        <div>
+          <div className={styles.MainTiles}>
+            <TileSection items={items} header="Picked for You" />
+          </div>
+          <div className={styles.MainTiles}>
+            <TileSection items={items} header="Popular this Summer" />
+          </div>
         </div>
       </div>
 
