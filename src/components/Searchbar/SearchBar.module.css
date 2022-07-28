@@ -18,7 +18,8 @@ input {
   margin-top: 34px;
   margin-left: 255px;
   margin-right: 123px;
-  /* \background-image: url("/search-icon.svg"); */
+  background-position: 10px 10px;
+  /* background-image: url("/search_icon.svg"); */
 }
 
 .wrapper {
