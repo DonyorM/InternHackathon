@@ -22,7 +22,7 @@ function App() {
 
   return (
     <div className="App">
-      <TileSection />
+      <TileSection itemIds={[1024, 1027, 1065]} />
     </div>
   );
 }

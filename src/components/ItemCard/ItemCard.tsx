@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "./ItemCard.module.css";
-interface TileSectionProps {
+interface ItemCardProps {
   name: string;
   price: number;
 }
-const ItemCard: React.FC<TileSectionProps> = ({ name, price }) => {
+const ItemCard: React.FC<ItemCardProps> = ({ name, price }) => {
   return (
     <div className={styles.ItemCard}>
       <img
