@@ -1,5 +1,6 @@
-import { useContext } from "react";
+import { useContext, useMemo } from "react";
 import { CartContext } from "../../contexts/CartContext";
+import styles from "./CheckoutScreen.module.css";
 
 const CheckoutScreen: React.FC = () => {
   const { cart } = useContext(CartContext);
@@ -10,12 +11,14 @@ const CheckoutScreen: React.FC = () => {
         <h1>Your Cart</h1>
         <div>
           {cart.map((entry) => (
-            <div>
-              <img src={`/images/${entry.item.id}.jpg`} />
-              <div>
-                <span>{entry.item.name}</span>
-                <span>${entry.item.price.toFixed(2)}</span>
-                <span>
+            <div className={styles.itemGroup}>
+              <img src={`/images/${entry.item.id}.jpg`} width={60} />
+              <div className={styles.itemBar}>
+                <span className={styles.itemName}>{entry.item.name}</span>
+                <span className={styles.price}>
+                  ${entry.item.price.toFixed(2)} x {entry.quanity}
+                </span>
+                <span className={styles.remove}>
                   <svg
                     width="8"
                     height="8"
@@ -34,7 +37,7 @@ const CheckoutScreen: React.FC = () => {
             </div>
           ))}
         </div>
-        <div></div>
+        <div className={styles.bottom}>bottom</div>
       </div>
     </>
   );
