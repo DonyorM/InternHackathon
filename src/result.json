@@ -5257,5 +5257,29 @@
     "price": 3.99,
     "id": 2695,
     "category": "Refresherz"
+  },
+  {
+    "name": "Starbucks Frapuccino",
+    "price": 4.99,
+    "id": 13062,
+    "category": "Refresherz"
+  },
+  {
+    "name": "Dunkin’ Iced Coffee",
+    "price": 2.99,
+    "id": 13063,
+    "category": "Refresherz"
+  },
+  {
+    "name": "Peace Coffee",
+    "price": 13.99,
+    "id": 13064,
+    "category": "Refresherz"
+  },
+  {
+    "name": "Medium Hot Coffee",
+    "price": 1.99,
+    "id": 13065,
+    "category": "Refresherz"
   }
 ]

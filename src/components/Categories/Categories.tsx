@@ -1,5 +1,4 @@
 import React from "react";
-import QRCode from "../QRCode/QRCode";
 import styles from "./Categories.module.css";
 const Categories: React.FC = () => {
   return (

@@ -21,23 +21,29 @@ const db = getFirestore(app);
 
 const defaultValues = [
   {
-    category: "Sliderz",
-    id: 1024,
-    name: "Spicy Bacon Ranch Sliderz",
-    price: 3.99,
+    "name": "Starbucks Frapuccino",
+    "price": 4.99,
+    "id": 13062,
+    "category": "Refresherz"
   },
   {
-    category: "Shnack Wrapz",
-    id: 1027,
-    name: "Booming Onions & Cheddar",
-    price: 5.59,
+    "name": "Dunkin’ Iced Coffee",
+    "price": 2.99,
+    "id": 13063,
+    "category": "Refresherz"
   },
   {
-    category: "Chicken Appz",
-    id: 1063,
-    name: "Boneless Bitez",
-    price: 5.59,
+    "name": "Peace Coffee",
+    "price": 13.99,
+    "id": 13064,
+    "category": "Refresherz"
   },
+  {
+    "name": "Medium Hot Coffee",
+    "price": 1.99,
+    "id": 13065,
+    "category": "Refresherz"
+  }
 ];
 
 interface MainScreenProps {
