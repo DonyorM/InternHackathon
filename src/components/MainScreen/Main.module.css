@@ -1,9 +1,6 @@
 .Main {
   display: flex;
 }
-.MainTilesGroup {
-  padding-bottom: 55px;
-}
 
 .topBar {
   display: flex;

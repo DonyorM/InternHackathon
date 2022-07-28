@@ -8,6 +8,7 @@
   color: #595959;
   font-weight: 600;
   size: 13.99px;
+  margin-top: 5px;
 }
 
 .ItemCardPrice {
@@ -16,6 +17,18 @@
   font-weight: 500;
 }
 
-.PlusButton {
-  position: absolute;
+.PlusButtonDiv {
+  display: inline-block;
+  margin-left: 11px;
+}
+
+.ItemQuantityDiv {
+  position: relative;
+  margin-top: -49px;
+  margin-bottom: 11px;
+  background-color: #f7f7f7;
+  justify-content: space-evenly;
+  padding-top: 5px;
+  border-radius: 25px;
+  border-color: red;
 }

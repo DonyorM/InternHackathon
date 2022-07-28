@@ -10,4 +10,27 @@
   width: 46px;
   height: 46px;
   border-radius: 50px;
+  position: relative;
+}
+
+.countBubble {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  border-radius: 22px;
+  width: 22px;
+  height: 22px;
+  background: #fe5050;
+
+  font-family: "Avenir Next";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12.4335px;
+  line-height: 17px;
+
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }

@@ -2,6 +2,8 @@ import { useContext, useMemo } from "react";
 import { CartContext } from "../../contexts/CartContext";
 import styles from "./CheckoutScreen.module.css";
 import SuggestedItems from "../SuggestedItems/SuggestedItems";
+import { Item } from "../../types";
+import LoyaltyComponent from "./loyaltyComponent/LoyaltyComponent";
 
 interface CheckoutScreenProps {
   setCheckout: (checkout: boolean) => void;
@@ -12,7 +14,12 @@ const CheckoutScreen: React.FC<CheckoutScreenProps> = ({
   setCheckout,
   setPayment,
 }) => {
-  const { cart } = useContext(CartContext);
+  const { cart, setCart } = useContext(CartContext);
+
+  const removeItem = (item: Item) => {
+    const newCart = cart.filter((x) => x.item.id !== item.id);
+    setCart(newCart);
+  };
 
   return (
     <>
@@ -50,7 +57,10 @@ const CheckoutScreen: React.FC<CheckoutScreenProps> = ({
                 <span className={styles.price}>
                   ${entry.item.price.toFixed(2)}
                 </span>
-                <span className={styles.remove}>
+                <button
+                  className={styles.remove}
+                  onClick={() => removeItem(entry.item)}
+                >
                   <svg
                     width="8"
                     height="8"
@@ -64,7 +74,7 @@ const CheckoutScreen: React.FC<CheckoutScreenProps> = ({
                     />
                   </svg>
                   Remove
-                </span>
+                </button>
               </div>
             </div>
           ))}
@@ -75,7 +85,7 @@ const CheckoutScreen: React.FC<CheckoutScreenProps> = ({
         <div className={styles.orderTotal}>
           <h2 className={styles.orderTotalTitle}>Order Total</h2>
           {cart.map((cartItem) => (
-            <span className={styles.price}>
+            <span className={styles.finalPrice}>
               ${cartItem.item.price} x {cartItem.quantity}
             </span>
           ))}
@@ -97,6 +107,7 @@ const CheckoutScreen: React.FC<CheckoutScreenProps> = ({
           >
             PROCEED TO PAYMENT
           </button>
+          <LoyaltyComponent />
         </div>
       </div>
       <SuggestedItems />

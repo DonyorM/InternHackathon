@@ -3,12 +3,12 @@
   font-weight: 600;
   font-size: 14.8334px;
   line-height: 20px;
-
+  margin-left: 15px;
   color: #595959;
 }
 
 .topBar {
-  padding: 35px;
+  padding: 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -33,7 +33,15 @@
   font-weight: 500;
   font-size: 14.8334px;
   line-height: 20px;
+  margin-left: 15px;
+  color: #8e8e8e;
+}
 
+.finalPrice {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14.8334px;
+  line-height: 20px;
   color: #8e8e8e;
 }
 
@@ -42,8 +50,16 @@
   font-weight: 500;
   font-size: 11.3173px;
   line-height: 15px;
-
   color: #fe5050;
+  border: none;
+  background: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.remove svg {
+  margin-left: 15px;
+  margin-right: 10px;
 }
 
 .itemBar {
@@ -57,7 +73,7 @@
   flex-direction: row;
 }
 
-.suggestedSection{
+.suggestedSection {
   display: flex;
   justify-content: right;
 }
