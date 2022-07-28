@@ -1,0 +1,5 @@
+const CheckoutScreen: React.FC = () => {
+  return <div>Hi</div>;
+};
+
+export default CheckoutScreen;

@@ -1,3 +1,12 @@
 .Main {
   display: flex;
 }
+
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 34px;
+  margin-right: 36px;
+  margin-left: 36px;
+}
