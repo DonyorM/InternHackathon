@@ -55,11 +55,12 @@
   background: transparent;
   -webkit-appearance: none;
   -moz-appearance: none;
+  text-align: left;
 }
 
 .remove svg {
-  margin-left: 15px;
   margin-right: 10px;
+  margin-left: 11px;
 }
 
 .itemBar {

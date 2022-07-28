@@ -73,7 +73,6 @@ const CheckoutScreen: React.FC<CheckoutScreenProps> = ({
                       fill="#FE5050"
                     />
                   </svg>
-                  Remove
                 </button>
               </div>
             </div>
@@ -92,11 +91,13 @@ const CheckoutScreen: React.FC<CheckoutScreenProps> = ({
           <div className={styles.bar}></div>
           <span className={styles.total}>
             $
-            {cart.reduce(
-              (partialSum, entry) =>
-                partialSum + entry.item.price * entry.quantity,
-              0
-            )}
+            {cart
+              .reduce(
+                (partialSum, entry) =>
+                  partialSum + entry.item.price * entry.quantity,
+                0
+              )
+              .toFixed(2)}
           </span>
           <button
             className={styles.checkout}
