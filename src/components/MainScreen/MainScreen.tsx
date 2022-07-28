@@ -46,6 +46,33 @@ const defaultValues = [
   },
 ];
 
+const summerPicks = [
+  {
+    "name": "Ben & Jerry's",
+    "price": 4.99,
+    "id": 13066,
+    "category": "Refresherz"
+  },
+  {
+    "name": "Ice",
+    "price": 2.99,
+    "id": 13067,
+    "category": "Refresherz"
+  },
+  {
+    "name": "Oreo",
+    "price": 8.99,
+    "id": 13068,
+    "category": "Cookies and Snack Cakes"
+  },
+  {
+    "name": "Takis",
+    "price": 3.99,
+    "id": 13069,
+    "category": "Chips"
+  }
+];
+
 interface MainScreenProps {
   setCheckout: (checkout: boolean) => void;
 }
@@ -118,7 +145,7 @@ const MainScreen: React.FC<MainScreenProps> = ({ setCheckout }) => {
           )}
 
           <div className={styles.MainTiles}>
-            <TileSection items={items} header="Popular this Summer" />
+            <TileSection items={summerPicks} header="Popular this Summer" />
           </div>
         </div>
       </div>
