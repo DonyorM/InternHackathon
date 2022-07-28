@@ -1,5 +1,6 @@
 .plusButton {
   float: right;
+  padding-right: 20px;
 }
 .button {
   background: inherit;

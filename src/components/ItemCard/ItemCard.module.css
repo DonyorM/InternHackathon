@@ -1,7 +1,8 @@
-/* .ItemCard {
-  width: 150px;
-  height: 200px;
-} */
+.ItemCard {
+  /* width: 150px;
+  height: 200px; */
+  position: relative;
+}
 
 .ItemCardName {
   color: #595959;

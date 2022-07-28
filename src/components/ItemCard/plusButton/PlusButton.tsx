@@ -1,9 +1,19 @@
+import React from "react";
 import styles from "./PlusButton.module.css";
 
-const PlusButton = () => {
+interface PlusButtonProps {
+  setQuantity: (quantity: number) => void;
+  quantity: number;
+}
+
+const PlusButton: React.FC<PlusButtonProps> = ({ setQuantity, quantity }) => {
+  const handleClick = () => {
+    setQuantity(quantity + 1);
+  };
+
   return (
     <div className={styles.plusButton}>
-      <button className={styles.button}>
+      <button className={styles.button} onClick={() => handleClick()}>
         <svg
           width="32"
           height="31"
