@@ -1,8 +1,16 @@
 .TileSection {
   display: grid;
   text-align: left;
-  grid-template-columns: repeat(4, 176px);
+  grid-template-columns: repeat(4, 180px);
   gap: 10px;
   grid-auto-rows: auto;
   justify-content: stretch;
+}
+
+.TileSectionHeader {
+  margin-top: 25px;
+  color: 3F3F3F;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
 }

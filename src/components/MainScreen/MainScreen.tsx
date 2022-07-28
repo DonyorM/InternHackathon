@@ -111,9 +111,12 @@ const MainScreen: React.FC<MainScreenProps> = ({ setCheckout }) => {
           <QRCode />
         </div>
         <div>
-          <div className={styles.MainTiles}>
-            <TileSection items={items} header="Picked for You" />
-          </div>
+          {!searchInput && (
+            <div className={styles.MainTiles}>
+              <TileSection items={items} header="Picked for You" />
+            </div>
+          )}
+
           <div className={styles.MainTiles}>
             <TileSection items={items} header="Popular this Summer" />
           </div>

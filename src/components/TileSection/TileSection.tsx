@@ -19,7 +19,7 @@ const TileSection: React.FC<TileSectionProps> = ({ items, header, height }) => {
 
   return (
     <div>
-      <p>{header}</p>
+      <p className={styles.TileSectionHeader}>{header}</p>
       <div className={styles.TileSection}>
         {items.map((arrayItem) => (
           <ItemCard item={arrayItem} imgSrc={`/images/${arrayItem.id}.jpg`} height={height} />
