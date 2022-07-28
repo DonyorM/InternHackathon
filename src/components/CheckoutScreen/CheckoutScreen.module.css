@@ -35,3 +35,8 @@
   display: flex;
   flex-direction: row;
 }
+
+.suggestedSection{
+  display: flex;
+  justify-content: right;
+}

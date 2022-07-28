@@ -1,6 +1,7 @@
 import { useContext, useMemo } from "react";
 import { CartContext } from "../../contexts/CartContext";
 import styles from "./CheckoutScreen.module.css";
+import SuggestedItems from "../SuggestedItems/SuggestedItems";
 
 const CheckoutScreen: React.FC = () => {
   const { cart } = useContext(CartContext);
@@ -37,7 +38,9 @@ const CheckoutScreen: React.FC = () => {
             </div>
           ))}
         </div>
-        <div className={styles.bottom}>bottom</div>
+        {/* <div className={styles.suggestedSection}> */}
+          <SuggestedItems />
+        {/* </div> */}
       </div>
     </>
   );
