@@ -47,11 +47,14 @@ const ItemCard: React.FC<ItemCardProps> = ({ item, imgSrc, height }) => {
         height={height ?? "125px"}
       ></img>
       {quantity > 0 ? (
-        <ItemQuantity setQuantity={updateCart} quantity={quantity} />
+        <div className={styles.ItemQuantityDiv}>
+          <ItemQuantity setQuantity={updateCart} quantity={quantity} />
+        </div>
       ) : (
-        <PlusButton setQuantity={updateCart} quantity={quantity} />
+        <div className={styles.PlusButtonDiv}>
+          <PlusButton setQuantity={updateCart} quantity={quantity} />
+        </div>
       )}
-
       <p className={styles.ItemCardName}>{item.name}</p>
       <p className={styles.ItemCardPrice}>{item.price}</p>
     </div>
