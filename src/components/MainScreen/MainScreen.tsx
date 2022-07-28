@@ -13,6 +13,7 @@ import data from "../../result.json";
 import { useAuthState } from "react-firebase-hooks/auth";
 import TileSection from "../TileSection/TileSection";
 import Categories from "../Categories/Categories";
+import QRCode from "../QRCode/QRCode";
 import styles from "./Main.module.css";
 import ShoppingChartButton from "../ShoppingCartButton/ShoppingCartButton";
 const auth = getAuth(app);
@@ -93,6 +94,7 @@ const MainScreen = () => {
       <ShoppingChartButton onClick={() => null} />
       <div className={styles.Main}>
         <Categories />
+        <QRCode />
         <TileSection items={items} />
       </div>
       {displayKeyboard && (
