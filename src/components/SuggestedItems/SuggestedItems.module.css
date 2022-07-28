@@ -1,11 +1,23 @@
 .suggestedRow {
-    /* display: flex; */
+    display: flex;
+    align-items: center;
     position: fixed;
     bottom: 0;
     width: 100%;
-    justify-content: center;
+    justify-content: space-around;
     flex-direction: row;
+    background: #FFFFFF;
+    border: 1px solid #ECECEC;
+    box-shadow: 0px -9.31967px 82.8415px rgba(0, 0, 0, 0.04), 0px -3.89354px 34.6092px rgba(0, 0, 0, 0.0287542), 0px -2.08167px 18.5037px rgba(0, 0, 0, 0.0238443), 0px -1.16697px 10.373px rgba(0, 0, 0, 0.02), 0px -0.619768px 5.50905px rgba(0, 0, 0, 0.0161557), 0px -0.257899px 2.29244px rgba(0, 0, 0, 0.0112458);
+    border-radius: 22.7814px;
+    align-items: right;
+    height: 150px;
 }
-.col{
-    display: flex;
+.label{
+    font-family: 'Avenir Next';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 127.6%;
+    color: #3F3F3F;
 }

@@ -65,11 +65,9 @@ const CheckoutScreen: React.FC<CheckoutScreenProps> = ({ setCheckout }) => {
             </div>
           ))}
         </div>
-<<<<<<< HEAD
         {/* <div className={styles.suggestedSection}> */}
-          <SuggestedItems />
+         
         {/* </div> */}
-=======
         <div className={styles.orderTotal}>
           <h2 className={styles.orderTotalTitle}>Order Total</h2>
           {cart.map((cartItem) => (
@@ -88,9 +86,8 @@ const CheckoutScreen: React.FC<CheckoutScreenProps> = ({ setCheckout }) => {
           </span>
           <button className={styles.checkout}>PROCEED TO PAYMENT</button>
         </div>
->>>>>>> b7b4d4d95497358501d7a97d862b7a03b688bb01
       </div>
-      <div className={styles.bottom}>bottom</div>
+      <SuggestedItems />
     </>
   );
 };

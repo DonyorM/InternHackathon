@@ -32,7 +32,8 @@ const SuggestedItems: React.FC = () => {
     return(
         <div className={styles.suggestedRow}>
             {/* <div className = {styles.col}> */}
-                <TileSection items={defaultValues}/>
+                <div className = {styles.label}>Pairs well with</div>
+                <TileSection items={defaultValues} height={30} header = ""/>
             {/* </div> */}
         </div>
     )

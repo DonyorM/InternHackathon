@@ -10,8 +10,9 @@ const db = getFirestore(app);
 interface TileSectionProps {
   items: Item[];
   header: String;
+  height?: number
 }
-const TileSection: React.FC<TileSectionProps> = ({ items, header }) => {
+const TileSection: React.FC<TileSectionProps> = ({ items, header, height }) => {
   if (items.length === 0) {
     <div>No items found</div>;
   }
@@ -22,6 +23,7 @@ const TileSection: React.FC<TileSectionProps> = ({ items, header }) => {
       <div className={styles.TileSection}>
         {items.map((arrayItem) => (
           <ItemCard
+            height={height}
             name={arrayItem.name}
             price={arrayItem.price}
             imgSrc={`/images/${arrayItem.id}.jpg`}

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { SignatureHelpTriggerCharacter } from "typescript";
 import styles from "./ItemCard.module.css";
 import ItemQuantity from "./itemQuantity/ItemQuantity";
 import PlusButton from "./plusButton/PlusButton";
@@ -6,8 +7,9 @@ interface ItemCardProps {
   name: string;
   price: number;
   imgSrc: string;
+  height?: number;
 }
-const ItemCard: React.FC<ItemCardProps> = ({ name, price, imgSrc }) => {
+const ItemCard: React.FC<ItemCardProps> = ({ name, price, imgSrc, height }) => {
   const [showQuantity, setShowQuantity] = useState(false);
   const [quantity, setQuantity] = useState(0);
 
@@ -17,8 +19,8 @@ const ItemCard: React.FC<ItemCardProps> = ({ name, price, imgSrc }) => {
         className={styles.ItemCardImage}
         src={imgSrc}
         alt="Food item"
-        width="125px"
-        height="125px"
+        width={height ?? "125px"}
+        height={height ?? "125px"}
       ></img>
       {quantity > 0 ? (
         <ItemQuantity setQuantity={setQuantity} quantity={quantity} />

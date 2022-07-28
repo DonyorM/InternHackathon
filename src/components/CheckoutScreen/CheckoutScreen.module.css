@@ -57,12 +57,10 @@
   flex-direction: row;
 }
 
-<<<<<<< HEAD
 .suggestedSection{
   display: flex;
   justify-content: right;
 }
-=======
 .bar {
   border: 2.52804px solid #7ec4e6;
   width: 50px;
@@ -132,4 +130,3 @@
   line-height: 25px;
   margin-top: 80px;
 }
->>>>>>> b7b4d4d95497358501d7a97d862b7a03b688bb01

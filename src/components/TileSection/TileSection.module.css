@@ -1,7 +1,5 @@
 .TileSection {
   display: grid;
-  width: 155px;
-  height: 200px;
   text-align: left;
   grid-template-columns: repeat(4, 176px);
   gap: 10px;
