@@ -48,29 +48,29 @@ const defaultValues = [
 
 const summerPicks = [
   {
-    "name": "Ben & Jerry's",
-    "price": 4.99,
-    "id": 13066,
-    "category": "Refresherz"
+    name: "Ben & Jerry's",
+    price: 4.99,
+    id: 13066,
+    category: "Refresherz",
   },
   {
-    "name": "Ice",
-    "price": 2.99,
-    "id": 13067,
-    "category": "Refresherz"
+    name: "Ice",
+    price: 2.99,
+    id: 13067,
+    category: "Refresherz",
   },
   {
-    "name": "Oreo",
-    "price": 8.99,
-    "id": 13068,
-    "category": "Cookies and Snack Cakes"
+    name: "Oreo",
+    price: 8.99,
+    id: 13068,
+    category: "Cookies and Snack Cakes",
   },
   {
-    "name": "Takis",
-    "price": 3.99,
-    "id": 13069,
-    "category": "Chips"
-  }
+    name: "Takis",
+    price: 3.99,
+    id: 13069,
+    category: "Chips",
+  },
 ];
 
 interface MainScreenProps {
@@ -80,27 +80,28 @@ interface MainScreenProps {
 const MainScreen: React.FC<MainScreenProps> = ({ setCheckout }) => {
   const [searchInput, setSearchInput] = useState("");
   const [displayKeyboard, setDisplayKeyboard] = useState(false);
-  const [userId, setUserId] = useState<string | null>(null);
 
-  useEffect(() => {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const loyaltyId = urlParams.get("loyaltyId");
-    setUserId(loyaltyId);
-  }, [setUserId]);
-
-  const [identityValue, loading] = useDocumentData(
-    doc(db, "identity", userId ?? "test")
-  );
+  // useEffect(() => {
+  //   const queryString = window.location.search;
+  //   const urlParams = new URLSearchParams(queryString);
+  //   const loyaltyId = urlParams.get("loyaltyId");
+  //   setUserId(loyaltyId);
+  // }, [setUserId]);
 
   const items = useMemo(() => {
     let vals = defaultValues;
-    if (identityValue) {
-      vals = data.filter((d) => identityValue.previousPurchase.includes(d.id));
-    }
+    // if (identityValue) {
+    //   vals = data.filter((d) => identityValue.previousPurchase.includes(d.id));
+    // }
     const regex = new RegExp(searchInput, "i");
     return searchInput && data ? data.filter((d) => regex.test(d.name)) : vals;
-  }, [searchInput, data]);
+  }, [searchInput]);
+
+  // const categoryItems = setCategory(() => {
+  //   let vals = defaultValues;
+  //   if (data.filter.category == "Sandwiches") {
+  //   }
+  // }, [data]);
 
   useEffect(() => {
     signInWithEmailAndPassword(
@@ -119,7 +120,7 @@ const MainScreen: React.FC<MainScreenProps> = ({ setCheckout }) => {
     }
 
     window.addEventListener("click", clickHandler);
-    return window.removeEventListener("click", clickHandler, true);
+    return () => window.removeEventListener("click", clickHandler);
   }, []);
   return (
     <>
@@ -143,9 +144,11 @@ const MainScreen: React.FC<MainScreenProps> = ({ setCheckout }) => {
               <TileSection items={items} header="Picked for You" />
             </div>
           )}
-
           <div className={styles.MainTiles}>
-            <TileSection items={summerPicks} header="Popular this Summer" />
+            <TileSection
+              items={searchInput ? items : summerPicks}
+              header={searchInput ? "Search Results" : "Popular this Summer"}
+            />
           </div>
         </div>
       </div>

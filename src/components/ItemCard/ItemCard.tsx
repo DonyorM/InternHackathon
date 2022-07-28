@@ -1,5 +1,4 @@
-
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../contexts/CartContext";
 import { CartItem, Item } from "../../types";
 import styles from "./ItemCard.module.css";
@@ -14,8 +13,16 @@ const ItemCard: React.FC<ItemCardProps> = ({ item, imgSrc, height }) => {
   const [quantity, setQuantity] = useState(0);
 
   const { cart, setCart } = useContext(CartContext);
+
+  useEffect(() => {
+    const thisItem = cart.find((x) => x.item.id === item.id);
+    if (thisItem) {
+      setQuantity(thisItem.quantity);
+    } else {
+      setQuantity(0);
+    }
+  }, [cart, item.id]);
   const updateCart = (quantity: number) => {
-    setQuantity(quantity);
     let newCart = [...cart];
     if (quantity === 0) {
       newCart = newCart.filter((cartItem) => cartItem.item.id !== item.id);
@@ -40,11 +47,14 @@ const ItemCard: React.FC<ItemCardProps> = ({ item, imgSrc, height }) => {
         height={height ?? "125px"}
       ></img>
       {quantity > 0 ? (
-        <ItemQuantity setQuantity={updateCart} quantity={quantity} />
+        <div className={styles.ItemQuantityDiv}>
+          <ItemQuantity setQuantity={updateCart} quantity={quantity} />
+        </div>
       ) : (
-        <PlusButton setQuantity={updateCart} quantity={quantity} />
+        <div className={styles.PlusButtonDiv}>
+          <PlusButton setQuantity={updateCart} quantity={quantity} />
+        </div>
       )}
-
       <p className={styles.ItemCardName}>{item.name}</p>
       <p className={styles.ItemCardPrice}>{item.price}</p>
     </div>
