@@ -8,10 +8,15 @@ interface ItemCardProps {
 const ItemCard: React.FC<ItemCardProps> = ({ name, price, imgSrc }) => {
   return (
     <div className={styles.ItemCard}>
-      <img src={imgSrc} alt="Food item" width="100px" height="100px"></img>
-      <p>{name}</p>
-      <p>{price}</p>
-      <p>Add to Cart</p>
+      <img
+        className={styles.ItemCardImage}
+        src={imgSrc}
+        alt="Food item"
+        width="125px"
+        height="125px"
+      ></img>
+      <p className={styles.ItemCardName}>{name}</p>
+      <p className={styles.ItemCardPrice}>{price}</p>
     </div>
   );
 };

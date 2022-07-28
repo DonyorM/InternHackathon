@@ -2,3 +2,15 @@
   width: 150px;
   height: 200px;
 } */
+
+.ItemCardName {
+  color: #595959;
+  font-weight: 600;
+  size: 13.99px;
+}
+
+.ItemCardPrice {
+  color: #8e8e8e;
+  font-weight: 500;
+  size: 13.99px;
+}

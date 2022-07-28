@@ -1,14 +1,18 @@
-import "./App.css";
 import Searchbar from "./components/Searchbar/Searchbar";
 import KeyboardComponent from "./components/keyboard/KeyboardComponent";
 import { app } from "./firebase";
 import React, { useEffect, useState, useMemo } from "react";
-import "./App.css";
+
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import TileSection from "./components/TileSection/TileSection";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { collection, getFirestore } from "firebase/firestore";
 import { Item } from "./types";
+import logo from "./logo.svg";
+
+import { useAuthState } from "react-firebase-hooks/auth";
+import TileSection from "./components/TileSection/TileSection";
+import Categories from "./components/Categories/Categories";
+import styles from "./App.module.css";
 const auth = getAuth(app);
 const db = getFirestore(app);
 
@@ -76,6 +80,14 @@ function App() {
         searchInput={searchInput}
         onChange={setSearchInput}
         setDisplayKeyboard={setDisplayKeyboard}
+      />
+      <div className={styles.Main}>
+        <Categories />
+        <TileSection items={items} />
+      </div>
+      <KeyboardComponent
+        searchInput={searchInput}
+        setSearchInput={setSearchInput}
       />
       <TileSection items={items} />
       {displayKeyboard && (
