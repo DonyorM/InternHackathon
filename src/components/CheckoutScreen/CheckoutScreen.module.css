@@ -44,6 +44,10 @@
   line-height: 15px;
 
   color: #fe5050;
+  border: none;
+  background: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
 .itemBar {
@@ -57,7 +61,7 @@
   flex-direction: row;
 }
 
-.suggestedSection{
+.suggestedSection {
   display: flex;
   justify-content: right;
 }

@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { CartContext } from "../../contexts/CartContext";
 import styles from "./ShoppingCartButton.module.css";
 
 interface ShoppingChartButtonProps {
@@ -7,6 +9,8 @@ interface ShoppingChartButtonProps {
 const ShoppingChartButton: React.FC<ShoppingChartButtonProps> = ({
   onClick,
 }) => {
+  const { cart } = useContext(CartContext);
+
   return (
     <button className={styles.mainButton} onClick={onClick}>
       <svg
@@ -21,6 +25,7 @@ const ShoppingChartButton: React.FC<ShoppingChartButtonProps> = ({
           fill="black"
         />
       </svg>
+      <span className={styles.countBubble}>{cart.length}</span>
     </button>
   );
 };
