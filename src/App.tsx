@@ -14,6 +14,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import TileSection from "./components/TileSection/TileSection";
 import Categories from "./components/Categories/Categories";
 import styles from "./App.module.css";
+import ShoppingChartButton from "./components/ShoppingCartButton/ShoppingCartButton";
 const auth = getAuth(app);
 const db = getFirestore(app);
 
@@ -60,9 +61,7 @@ function App() {
       vals = data.filter((d) => identityValue.previousPurchase.includes(d.id));
     }
     const regex = new RegExp(searchInput, "i");
-    return searchInput && data
-      ? data.filter((d) => regex.test(d.name))
-      : defaultValues;
+    return searchInput && data ? data.filter((d) => regex.test(d.name)) : vals;
   }, [searchInput, data]);
 
   useEffect(() => {
@@ -92,6 +91,7 @@ function App() {
         onChange={setSearchInput}
         setDisplayKeyboard={setDisplayKeyboard}
       />
+      <ShoppingChartButton onClick={() => null} />
       <div className={styles.Main}>
         <Categories />
         <TileSection items={items} />
