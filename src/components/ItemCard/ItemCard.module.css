@@ -1,7 +1,6 @@
-/* .ItemCard {
-  width: 150px;
-  height: 200px;
-} */
+.ItemCard {
+  padding-bottom: 45px;
+}
 
 .ItemCardName {
   color: #595959;

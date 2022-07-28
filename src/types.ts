@@ -5,6 +5,11 @@ export interface Item {
   category: string;
 }
 
+export interface CartItem {
+  item: Item;
+  quanity: number;
+}
+
 export interface User {
   previousPurchase: number[];
 }

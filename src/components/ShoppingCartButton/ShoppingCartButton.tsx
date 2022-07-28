@@ -4,9 +4,11 @@ interface ShoppingChartButtonProps {
   onClick: () => void;
 }
 
-const ShoppingChartButton: React.FC<ShoppingChartButtonProps> = () => {
+const ShoppingChartButton: React.FC<ShoppingChartButtonProps> = ({
+  onClick,
+}) => {
   return (
-    <button className={styles.mainButton}>
+    <button className={styles.mainButton} onClick={onClick}>
       <svg
         width="23"
         height="23"

@@ -2,11 +2,16 @@
   display: flex;
 }
 
+.MainTiles p {
+  padding-top: 45px;
+}
+
 .topBar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   margin-top: 34px;
-  margin-right: 36px;
-  margin-left: 36px;
+}
+
+.topLogo {
+  margin-left: 70px;
 }
