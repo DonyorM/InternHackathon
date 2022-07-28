@@ -4,3 +4,7 @@ export interface Item {
   id: number;
   category: string;
 }
+
+export interface User {
+  previousPurchase: number[];
+}

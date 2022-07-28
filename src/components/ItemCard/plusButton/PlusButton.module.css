@@ -1,0 +1,7 @@
+.plusButton {
+  float: right;
+}
+.button {
+  background: inherit;
+  border: none;
+}

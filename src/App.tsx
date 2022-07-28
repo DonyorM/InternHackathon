@@ -4,10 +4,11 @@ import { app } from "./firebase";
 import React, { useEffect, useState, useMemo } from "react";
 
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { useCollection } from "react-firebase-hooks/firestore";
-import { collection, getFirestore } from "firebase/firestore";
+import { useCollection, useDocumentData } from "react-firebase-hooks/firestore";
+import { collection, doc, getFirestore } from "firebase/firestore";
 import { Item } from "./types";
 import logo from "./logo.svg";
+import data from "./result.json";
 
 import { useAuthState } from "react-firebase-hooks/auth";
 import TileSection from "./components/TileSection/TileSection";
@@ -40,14 +41,24 @@ const defaultValues = [
 function App() {
   const [searchInput, setSearchInput] = useState("");
   const [displayKeyboard, setDisplayKeyboard] = useState(false);
+  const [userId, setUserId] = useState<string | null>(null);
 
-  const [value] = useCollection(collection(db, "items"));
+  useEffect(() => {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const loyaltyId = urlParams.get("loyaltyId");
+    setUserId(loyaltyId);
+  }, [setUserId]);
 
-  const data = useMemo(() => {
-    return value?.docs.map((doc) => doc.data() as Item);
-  }, [value]);
+  const [identityValue, loading] = useDocumentData(
+    doc(db, "identity", userId ?? "test")
+  );
 
   const items = useMemo(() => {
+    let vals = defaultValues;
+    if (identityValue) {
+      vals = data.filter((d) => identityValue.previousPurchase.includes(d.id));
+    }
     const regex = new RegExp(searchInput, "i");
     return searchInput && data
       ? data.filter((d) => regex.test(d.name))
