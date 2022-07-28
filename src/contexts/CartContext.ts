@@ -1,11 +1,12 @@
 import React from "react";
+import { CartItem } from "../types";
 
 interface CartHelper {
-  cart: Record<number, number>;
+  cart: CartItem[];
   setCart: (newCart: Record<number, number>) => void;
 }
 
 export const CartContext = React.createContext<CartHelper>({
-  cart: {},
+  cart: [],
   setCart: () => null,
 });
