@@ -2,8 +2,12 @@
   display: flex;
 }
 
+.MainTiles {
+  padding-bottom: 55px;
+}
+
 .MainTiles p {
-  padding-top: 45px;
+  font-weight: bold;
 }
 
 .topBar {
@@ -13,5 +17,5 @@
 }
 
 .topLogo {
-  margin-left: 70px;
+  margin-left: 40px;
 }

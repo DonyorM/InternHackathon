@@ -22,7 +22,7 @@ function App() {
     <CartContext.Provider value={{ cart, setCart }}>
       <div style={{ height: "100vh" }}>
         {checkout ? (
-          <CheckoutScreen />
+          <CheckoutScreen setCheckout={setCheckout} />
         ) : (
           <MainScreen setCheckout={setCheckout} />
         )}

@@ -5,7 +5,7 @@
 
 .searchBarInput {
   height: 46px;
-  width: 732px;
+  width: 700px;
   border-color: #ebebeb;
   border-radius: 5px;
   border-style: solid;
@@ -13,9 +13,14 @@
   margin-right: 41px;
   background-color: #f7f7f7;
   background-position: 10px 10px;
-  padding-left: 10px;
+  padding-left: 40px;
+  background-image: url("search_icon.svg");
+  background-position: 15px 18px;
+  background-repeat: no-repeat;
+}
 
-  /* background-image: url("/search_icon.svg"); */
+.searchBarInput :focus {
+  background-color: aqua;
 }
 
 .wrapper {
