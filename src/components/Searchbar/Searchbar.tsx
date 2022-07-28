@@ -14,7 +14,9 @@ const Searchbar: React.FC<SearchbarProps> = ({
   return (
     <div className={styles.searchBar}>
       <input
+        className={styles.searchBarInput}
         type="text"
+        placeholder="Search"
         value={searchInput}
         onChange={(evt) => onChange(evt.target.value)}
         onFocus={() => {

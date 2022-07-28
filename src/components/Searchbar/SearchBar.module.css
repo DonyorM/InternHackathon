@@ -6,7 +6,19 @@ input {
 .searchBar {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+}
+
+.searchBarInput {
+  height: 46px;
+  width: 732px;
+  border-color: #ebebeb;
+  border-radius: 5px;
+  border-style: solid;
+  background-color: #f7f7f7;
+  margin-top: 34px;
+  margin-left: 255px;
+  margin-right: 123px;
+  /* \background-image: url("/search-icon.svg"); */
 }
 
 .wrapper {

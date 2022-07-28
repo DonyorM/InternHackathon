@@ -1,8 +1,9 @@
 import React from "react";
+import styles from "./Categories.module.css";
 const Categories: React.FC = () => {
   return (
-    <div>
-      <ul>
+    <div className={styles.Categories}>
+      <ul className={styles.Categorieslist}>
         Categories
         <li>Sandwiches</li>
         <li>Beverages</li>
