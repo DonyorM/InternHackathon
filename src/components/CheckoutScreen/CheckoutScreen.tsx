@@ -80,7 +80,7 @@ const CheckoutScreen: React.FC<CheckoutScreenProps> = ({ setCheckout }) => {
         <div className={styles.orderTotal}>
           <h2 className={styles.orderTotalTitle}>Order Total</h2>
           {cart.map((cartItem) => (
-            <span className={styles.price}>
+            <span className={styles.finalPrice}>
               ${cartItem.item.price} x {cartItem.quantity}
             </span>
           ))}

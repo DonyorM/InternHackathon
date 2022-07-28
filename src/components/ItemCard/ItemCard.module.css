@@ -19,14 +19,16 @@
 
 .PlusButtonDiv {
   display: inline-block;
+  margin-left: 11px;
 }
 
 .ItemQuantityDiv {
   position: relative;
-  margin-top: -51px;
-  margin-bottom: 12px;
+  margin-top: -49px;
+  margin-bottom: 11px;
   background-color: #f7f7f7;
   justify-content: space-evenly;
   padding-top: 5px;
   border-radius: 25px;
+  border-color: red;
 }

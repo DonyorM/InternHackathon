@@ -97,12 +97,6 @@ const MainScreen: React.FC<MainScreenProps> = ({ setCheckout }) => {
     return searchInput && data ? data.filter((d) => regex.test(d.name)) : vals;
   }, [searchInput]);
 
-  // const categoryItems = setCategory(() => {
-  //   let vals = defaultValues;
-  //   if (data.filter.category == "Sandwiches") {
-  //   }
-  // }, [data]);
-
   useEffect(() => {
     signInWithEmailAndPassword(
       auth,

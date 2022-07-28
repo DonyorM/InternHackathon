@@ -5,9 +5,7 @@ const Categories: React.FC = () => {
     <div className={styles.Categories}>
       <ul className={styles.Categorieslist}>
         <li className={styles.CategoriesHead}>Recommended</li>
-        <li>
-          <button>Sandwiches</button>
-        </li>
+        <li>Sandwiches</li>
         <li>Beverages</li>
         <li>Snacks</li>
         <li>Produce</li>
