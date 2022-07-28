@@ -19,11 +19,7 @@ const TileSection: React.FC<TileSectionProps> = ({ items }) => {
     <div>
       <div className={styles.TileSection}>
         {items.map((arrayItem) => (
-          <ItemCard
-            name={arrayItem.name}
-            price={arrayItem.price}
-            imgSrc={`/images/${arrayItem.id}.jpg`}
-          />
+          <ItemCard item={arrayItem} imgSrc={`/images/${arrayItem.id}.jpg`} />
         ))}
       </div>
     </div>

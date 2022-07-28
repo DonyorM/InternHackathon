@@ -16,7 +16,7 @@ const CheckoutScreen: React.FC = () => {
               <div className={styles.itemBar}>
                 <span className={styles.itemName}>{entry.item.name}</span>
                 <span className={styles.price}>
-                  ${entry.item.price.toFixed(2)} x {entry.quanity}
+                  ${entry.item.price.toFixed(2)} x {entry.quantity}
                 </span>
                 <span className={styles.remove}>
                   <svg

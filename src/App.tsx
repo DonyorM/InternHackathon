@@ -15,7 +15,7 @@ function App() {
         id: 2695,
         category: "Refresherz",
       },
-      quanity: 1,
+      quantity: 1,
     },
   ]);
   return (
