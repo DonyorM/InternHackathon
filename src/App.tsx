@@ -85,10 +85,6 @@ function App() {
         <Categories />
         <TileSection items={items} />
       </div>
-      <KeyboardComponent
-        searchInput={searchInput}
-        setSearchInput={setSearchInput}
-      />
       {displayKeyboard && (
         <KeyboardComponent
           searchInput={searchInput}
