@@ -16,14 +16,17 @@ const TileSection: React.FC<TileSectionProps> = ({ items }) => {
   }
 
   return (
-    <div className={styles.TileSection}>
-      {items.map((arrayItem) => (
-        <ItemCard
-          name={arrayItem.name}
-          price={arrayItem.price}
-          imgSrc={`/images/${arrayItem.id}.jpg`}
-        />
-      ))}
+    <div>
+      <p>Summer Picks</p>
+      <div className={styles.TileSection}>
+        {items.map((arrayItem) => (
+          <ItemCard
+            name={arrayItem.name}
+            price={arrayItem.price}
+            imgSrc={`/images/${arrayItem.id}.jpg`}
+          />
+        ))}
+      </div>
     </div>
   );
 };

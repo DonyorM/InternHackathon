@@ -8,8 +8,6 @@ const Categories: React.FC = () => {
         Categories
         <li>Sandwiches</li>
         <li>Beverages</li>
-        <QRCode/>
-
       </ul>
     </div>
   );
