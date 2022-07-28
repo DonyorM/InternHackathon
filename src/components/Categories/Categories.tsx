@@ -1,4 +1,5 @@
 import React from "react";
+import QRCode from "../QRCode/QRCode";
 const Categories: React.FC = () => {
   return (
     <div>
@@ -6,6 +7,8 @@ const Categories: React.FC = () => {
         Categories
         <li>Sandwiches</li>
         <li>Beverages</li>
+        <QRCode/>
+
       </ul>
     </div>
   );
