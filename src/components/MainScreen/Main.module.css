@@ -1,13 +1,8 @@
 .Main {
   display: flex;
 }
-
-.MainTiles {
+.MainTilesGroup {
   padding-bottom: 55px;
-}
-
-.MainTiles p {
-  font-weight: bold;
 }
 
 .topBar {

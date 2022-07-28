@@ -14,4 +14,9 @@
 .ItemCardPrice {
   color: #8e8e8e;
   size: 13.99px;
+  font-weight: 500;
+}
+
+.PlusButton {
+  position: absolute;
 }
