@@ -14,6 +14,7 @@ function App() {
   const [user, loading, error] = useAuthState(auth);
 
   const [searchInput, setSearchInput] = useState("");
+  const [displayKeyboard, setDisplayKeyboard] = useState(false);
 
   useEffect(() => {
     signInWithEmailAndPassword(
@@ -21,18 +22,37 @@ function App() {
       "daniel.manila@willowtreeapps.com",
       "password"
     );
+    function clickHanlder(e: any) {
+      if (
+        !(e.target.nodeName === "INPUT") &&
+        !e.target.classList.contains("hg-button")
+      ) {
+        setDisplayKeyboard(false);
+        setSearchInput("");
+      }
+    }
+
+    window.addEventListener("click", clickHanlder);
+    return window.removeEventListener("click", clickHanlder, true);
   }, []);
 
   console.log(loading, ";", user);
 
   return (
     <div style={{ height: "100vh" }}>
-      <Searchbar searchInput={searchInput} />
-      <TileSection itemIds={[1024, 1027, 1065]} />
-      <KeyboardComponent
+      <Searchbar
         searchInput={searchInput}
-        setSearchInput={setSearchInput}
+        setDisplayKeyboard={setDisplayKeyboard}
       />
+      <TileSection itemIds={[1024, 1027, 1065]} />
+      <TileSection itemIds={[1024, 1027, 1065]} />
+      <TileSection itemIds={[1024, 1027, 1065]} />
+      {displayKeyboard && (
+        <KeyboardComponent
+          searchInput={searchInput}
+          setSearchInput={setSearchInput}
+        />
+      )}
     </div>
   );
 }
