@@ -3,7 +3,7 @@ import { CartItem } from "../types";
 
 interface CartHelper {
   cart: CartItem[];
-  setCart: (newCart: Record<number, number>) => void;
+  setCart: (newCart: CartItem[]) => void;
 }
 
 export const CartContext = React.createContext<CartHelper>({
