@@ -75,7 +75,7 @@ const MainScreen: React.FC<MainScreenProps> = ({ setCheckout }) => {
       "daniel.manila@willowtreeapps.com",
       "password"
     );
-    function clickHanlder(e: any) {
+    function clickHandler(e: any) {
       if (
         !(e.target.nodeName === "INPUT") &&
         !e.target.classList.contains("hg-button")
@@ -85,13 +85,13 @@ const MainScreen: React.FC<MainScreenProps> = ({ setCheckout }) => {
       }
     }
 
-    window.addEventListener("click", clickHanlder);
-    return window.removeEventListener("click", clickHanlder, true);
+    window.addEventListener("click", clickHandler);
+    return window.removeEventListener("click", clickHandler, true);
   }, []);
   return (
     <>
       <div className={styles.topBar}>
-        <div style={{ width: 50 }}></div>
+        <img className={styles.topLogo} src="/logo.svg" alt="" />
         <Searchbar
           searchInput={searchInput}
           onChange={setSearchInput}
@@ -100,10 +100,18 @@ const MainScreen: React.FC<MainScreenProps> = ({ setCheckout }) => {
         <ShoppingChartButton onClick={() => setCheckout(true)} />
       </div>
       <div className={styles.Main}>
-        <Categories />
-        <QRCode />
-        <TileSection items={items} />
+        <div>
+          <Categories />
+          <QRCode />
+        </div>
+        <div className={styles.MainTiles}>
+          <p>Picked for You</p>
+          <TileSection items={items} />
+          <p>Popular this Summer</p>
+          <TileSection items={items} />
+        </div>
       </div>
+
       {displayKeyboard && (
         <KeyboardComponent
           searchInput={searchInput}

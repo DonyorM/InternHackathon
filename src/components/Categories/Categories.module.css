@@ -8,3 +8,9 @@
 .Categorieslist {
   list-style: none;
 }
+
+.Categorieslist li {
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: #727272;
+}
