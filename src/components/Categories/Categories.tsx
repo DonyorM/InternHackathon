@@ -4,8 +4,10 @@ const Categories: React.FC = () => {
   return (
     <div className={styles.Categories}>
       <ul className={styles.Categorieslist}>
-        <li>Recommended</li>
-        <li>Prepared Food</li>
+        <li className={styles.CategoriesHead}>Recommended</li>
+        <li>
+          <button>Sandwiches</button>
+        </li>
         <li>Beverages</li>
         <li>Snacks</li>
         <li>Produce</li>
