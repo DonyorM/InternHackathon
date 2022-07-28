@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./ItemCard.module.css";
+import PlusButton from "./plusButton/PlusButton";
 interface ItemCardProps {
   name: string;
   price: number;
@@ -15,6 +16,7 @@ const ItemCard: React.FC<ItemCardProps> = ({ name, price, imgSrc }) => {
         width="125px"
         height="125px"
       ></img>
+      <PlusButton />
       <p className={styles.ItemCardName}>{name}</p>
       <p className={styles.ItemCardPrice}>{price}</p>
     </div>
