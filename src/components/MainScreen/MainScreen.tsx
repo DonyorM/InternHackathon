@@ -40,7 +40,11 @@ const defaultValues = [
   },
 ];
 
-const MainScreen = () => {
+interface MainScreenProps {
+  setCheckout: (checkout: boolean) => void;
+}
+
+const MainScreen: React.FC<MainScreenProps> = ({ setCheckout }) => {
   const [searchInput, setSearchInput] = useState("");
   const [displayKeyboard, setDisplayKeyboard] = useState(false);
   const [userId, setUserId] = useState<string | null>(null);
@@ -86,12 +90,15 @@ const MainScreen = () => {
   }, []);
   return (
     <>
-      <Searchbar
-        searchInput={searchInput}
-        onChange={setSearchInput}
-        setDisplayKeyboard={setDisplayKeyboard}
-      />
-      <ShoppingChartButton onClick={() => null} />
+      <div className={styles.topBar}>
+        <div style={{ width: 50 }}></div>
+        <Searchbar
+          searchInput={searchInput}
+          onChange={setSearchInput}
+          setDisplayKeyboard={setDisplayKeyboard}
+        />
+        <ShoppingChartButton onClick={() => setCheckout(true)} />
+      </div>
       <div className={styles.Main}>
         <Categories />
         <QRCode />
