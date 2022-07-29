@@ -112,6 +112,7 @@ const MainScreen: React.FC<MainScreenProps> = ({ setCheckout }) => {
     function clickHandler(e: any) {
       if (
         !(e.target.nodeName === "INPUT") &&
+        !e.target.matches("button *") &&
         !e.target.classList.contains("hg-button")
       ) {
         setDisplayKeyboard(false);
@@ -119,8 +120,8 @@ const MainScreen: React.FC<MainScreenProps> = ({ setCheckout }) => {
       }
     }
 
-    window.addEventListener("click", clickHandler);
-    return () => window.removeEventListener("click", clickHandler);
+    document.body.addEventListener("click", clickHandler);
+    return () => document.body.removeEventListener("click", clickHandler);
   }, []);
   return (
     <>

@@ -4,13 +4,14 @@ import MainScreen from "./components/MainScreen/MainScreen";
 import { CartContext } from "./contexts/CartContext";
 import { app } from "./firebase";
 import { CartItem } from "./types";
+import styles from "./App.module.css";
 
 function App() {
   const [checkout, setCheckout] = useState(false);
   const [cart, setCart] = useState<CartItem[]>([]);
   return (
     <CartContext.Provider value={{ cart, setCart }}>
-      <div style={{ height: "100vh" }}>
+      <div style={{ height: "100vh" }} className={styles.Main}>
         {checkout ? (
           <CheckoutScreen setCheckout={setCheckout} />
         ) : (
